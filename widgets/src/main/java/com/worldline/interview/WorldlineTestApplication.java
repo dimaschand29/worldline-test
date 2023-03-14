@@ -8,22 +8,22 @@ import com.worldline.interview.machine.WidgetMachine;
 public class WorldlineTestApplication {
     public static void main(String[] args) {
 
-        // Initialize machine widget
+        // Initialize widget machine
         WidgetMachine widgetMachine = new WidgetMachine(FuelType.DIESEL, 20);
 
-        // Add fuel level
+        // Add fuel level widget machine
         widgetMachine.setFuelLevel(3);
 
-        // Running a machine
+        // Running a widget machine
         System.out.println(widgetMachine.produceWidgets());
 
-        // Initialize machine widget
+        // Initialize steam machine
         SteamMachine steamMachine = new SteamMachine(FuelType.COAL, 20);
 
-        // Add fuel level
+        // Add fuel level steam machine
         steamMachine.setFuelLevel(3);
 
-        // Running a machine
+        // Running a steam machine
         System.out.println(steamMachine.produceWidgets());
     }
 }
