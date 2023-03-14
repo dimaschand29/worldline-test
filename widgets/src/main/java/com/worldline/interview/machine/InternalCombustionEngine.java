@@ -54,4 +54,9 @@ public class InternalCombustionEngine {
     public void setFuelLevel(int fuelLevel){
         this.fuelLevel = fuelLevel;
     }
+
+    public int getFuelLevel(){
+        return this.fuelLevel;
+    }
+
 }

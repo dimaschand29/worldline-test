@@ -17,7 +17,7 @@ public class CommonMachineConfiguration extends InternalCombustionEngine {
         super(fuelTypeRequieredList, fuelTypeInput);
         this.batchSize = batchSize;
         this.quantity = quantity;
-        this.fuelType = super.getFuelType();
+        this.fuelType = fuelTypeInput;
     }
 
     public double produceWidgets() {
@@ -28,9 +28,6 @@ public class CommonMachineConfiguration extends InternalCombustionEngine {
         int batchSize = this.batchSize;
 
         if (super.isRunning()) {
-            System.out.println(this.quantity);
-            System.out.println(super.getFuelType());
-            System.out.println(batchSize);
             cost = produce(quantity, fuelType, batchSize);
         }
 
@@ -39,15 +36,14 @@ public class CommonMachineConfiguration extends InternalCombustionEngine {
         return cost;
     }
 
-    private double produce(int quantity, FuelType fuelType, int batchSize) {
-        int batch = batchSize;
+    public double produce(int quantity, FuelType fuelType, int batchSize) {
+        int batch = 0;
         int batchCount = 0;
-        double costPerBatch = FuelType.valueOf(fuelType.name()).getCost();
+        double costPerBatch = Math.abs(FuelType.valueOf(fuelType.name()).getCost());
 
-        while (batch < quantity) {
-            batch = batch+batchCount;
+        while (batch < Math.abs(quantity)) {
+            batch = batch+batchSize;
             batchCount++;
-            System.out.println("batchCount : "+batchCount);
         }
 
         return batchCount * costPerBatch;
